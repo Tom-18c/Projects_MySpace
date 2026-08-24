@@ -18,6 +18,12 @@
 
 直接用浏览器打开 `index.html` 即可，或使用 VS Code 的 Live Server 插件。
 
+## 在线访问
+
+项目发布到 GitHub Pages 后，可通过以下地址访问：
+
+https://tom-18c.github.io/Projects_MySpace/
+
 ## 部署到 GitHub Pages
 
 1. 在 GitHub 上创建仓库（如 `username.github.io` 或任意名称）

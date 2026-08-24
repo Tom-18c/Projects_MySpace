@@ -116,4 +116,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", handleNavbarShadow);
+
+  const featureSections = document.querySelectorAll(".feature-section");
+  const featureLocalLinks = document.querySelectorAll(".feature-local-link");
+
+  if (featureSections.length && featureLocalLinks.length) {
+    const updateFeatureNav = () => {
+      const currentSection = [...featureSections].find((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        return sectionTop <= window.innerHeight * 0.35 &&
+          sectionTop + section.offsetHeight > window.innerHeight * 0.35;
+      });
+
+      featureLocalLinks.forEach((link) => {
+        link.classList.toggle(
+          "active",
+          currentSection && link.getAttribute("href") === `#${currentSection.id}`
+        );
+      });
+    };
+
+    window.addEventListener("scroll", updateFeatureNav);
+    updateFeatureNav();
+  }
 });

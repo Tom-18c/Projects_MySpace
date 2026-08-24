@@ -43,7 +43,7 @@
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
   --navbar-height: 4.0625rem;
-  --title-freezed-height: 4.5rem;
+  --title-freezed-height: 6rem;
 }
 
 *,
@@ -529,7 +529,7 @@ img {
 
 @media (max-width: 768px) {
   :root {
-    --title-freezed-height: 4.75rem;
+    --title-freezed-height: 5.75rem;
   }
 
   .navbar-toggle {

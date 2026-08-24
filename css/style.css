@@ -59,9 +59,6 @@
   --transition-base: 250ms ease;
   --transition-slow: 350ms ease;
 
-  /* 容器宽度 */
-  --container-max-width: 1200px;
-}
 
 /* ========================================
    重置样式
@@ -108,9 +105,8 @@ img {
    ======================================== */
 .container {
   width: 100%;
-  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 var(--spacing-xl);
+  padding: 0 clamp(var(--spacing-lg), 4vw, var(--spacing-3xl));
 }
 
 /* ========================================

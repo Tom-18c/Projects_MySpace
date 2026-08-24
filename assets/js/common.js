@@ -3,7 +3,33 @@
  * 处理导航、滚动动画等交互逻辑
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const rootPath = document.body.dataset.rootPath || "";
+  const page = document.body.dataset.page || "home";
+
+  async function loadLayoutPart(name) {
+    const placeholder = document.querySelector(`[data-layout="${name}"]`);
+    if (!placeholder) {
+      return;
+    }
+
+    const response = await fetch(`${rootPath}layout-parts/${name}.html`);
+    if (!response.ok) {
+      throw new Error(`无法加载公共片段: ${name}`);
+    }
+
+    let content = await response.text();
+    content = content.replaceAll("{{ROOT}}", rootPath);
+    content = content.replace("{{HOME_ACTIVE}}", page === "home" ? "active" : "");
+    content = content.replace("{{FEATURES_ACTIVE}}", page === "media" ? "active" : "");
+    placeholder.outerHTML = content;
+  }
+
+  await Promise.all([loadLayoutPart("header"), loadLayoutPart("footer")]);
+
+  if (page === "home") {
+    document.querySelector("[data-back-link]")?.remove();
+  }
 
   /* ========================================
      导航栏 - 移动端菜单切换

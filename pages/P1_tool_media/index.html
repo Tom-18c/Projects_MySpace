@@ -7,27 +7,9 @@
   <title>媒体工具 | Tom的个人空间</title>
   <link rel="stylesheet" href="../../assets/css/global.css">
 </head>
-<body>
+<body data-root-path="../../" data-page="media">
 
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-brand-group">
-        <a href="../../index.html" class="navbar-brand">TomSpace</a>
-        <a href="../../index.html" class="back-link">返回上一级</a>
-      </div>
-      <button class="navbar-toggle" id="navToggle" aria-label="切换导航">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="navbar-menu" id="navMenu">
-        <li><a href="../../index.html#home" class="nav-link">首页</a></li>
-        <li><a href="../../index.html#features" class="nav-link active">功能</a></li>
-        <li><a href="../../index.html#about" class="nav-link">关于</a></li>
-        <li><a href="../../index.html#contact" class="nav-link">联系</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div data-layout="header"></div>
 
 <section id="features" class="features">
   <header class="title-freezed">
@@ -49,6 +31,13 @@
         <section id="feature-1" class="feature-section">
           <div class="feature-card">
             <h2 class="feature-title">看VIP视频</h2>
+            <div class="video-tool-controls">
+              <button type="button" class="btn btn-primary video-tool-button" id="tmClipboardButton">解析剪切板内容</button>
+              <input type="text" class="video-url-input" id="tmVideoUrl" placeholder="在此输入网址..." aria-label="视频网址">
+              <button type="button" class="btn btn-primary video-tool-button" id="tmParseButton">解析网址</button>
+              <button type="button" class="btn btn-primary video-tool-button" id="tmClearButton">清空文本</button>
+            </div>
+            <p class="video-tool-status" id="tmStatus" role="status" aria-live="polite"></p>
           </div>
         </section>
         <section id="feature-2" class="feature-section">
@@ -68,6 +57,9 @@
   </main>
 </section>
 
+  <div data-layout="footer"></div>
+
   <script src="../../assets/js/common.js"></script>
+  <script src="tool_media.js"></script>
 </body>
 </html>

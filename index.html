@@ -7,25 +7,9 @@
   <title>Tom的个人空间</title>
   <link rel="stylesheet" href="assets/css/global.css">
 </head>
-<body>
+<body data-root-path="" data-page="home">
 
-  <!-- 导航栏 -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#" class="navbar-brand">TomSpace</a>
-      <button class="navbar-toggle" id="navToggle" aria-label="切换导航">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="navbar-menu" id="navMenu">
-        <li><a href="#home" class="nav-link active">首页</a></li>
-        <li><a href="#features" class="nav-link">功能</a></li>
-        <li><a href="#about" class="nav-link">关于</a></li>
-        <li><a href="#contact" class="nav-link">联系</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div data-layout="header"></div>
 
   <!-- 首页英雄区 -->
   <section id="home" class="hero">
@@ -42,7 +26,7 @@
       <h2 class="section-title">功能分类</h2>
       <p class="section-subtitle">未来将在这里实现的各种工具与项目</p>
       <div class="features-grid">
-        <a href="pages/tool_media/index.html" class="feature-card">
+        <a href="pages/P1_tool_media/index.html" class="feature-card">
           <div class="feature-icon">🎞️</div>
           <h3 class="feature-title">媒体工具</h3>
           <p class="feature-desc">主要处理视频、音频、图片等媒体内容</p>
@@ -99,12 +83,7 @@
     </div>
   </section>
 
-  <!-- 页脚 -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 MySpace. All rights reserved.</p>
-    </div>
-  </footer>
+  <div data-layout="footer"></div>
 
   <script src="assets/js/common.js"></script>
 </body>

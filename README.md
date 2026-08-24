@@ -26,7 +26,7 @@
 
 ## 本地预览
 
-直接用浏览器打开 `index.html` 即可，或使用 VS Code 的 Live Server 插件。
+由于导航栏和页脚通过公共 HTML 片段动态加载，请使用 VS Code 的 Live Server 插件或其他本地 HTTP 服务预览，不能直接通过浏览器打开 `index.html`。
 
 ## 在线访问
 

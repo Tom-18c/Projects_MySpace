@@ -1,3 +1,23 @@
 {
-  "parserUrl": "https://jiexi.789jiexi.net:4433/?url="
+  "P1": {
+    "ParserStatus": "active",
+    "ParserLastUpdate": "2026-08-25 13:00:25",
+    "ParserName": "789解析",
+    "ParserUrl": "https://jiexi.789jiexi.net:4433/?url=",
+    "ParserInformation": "暂无"
+  },
+  "P2": {
+    "ParserStatus": "active",
+    "ParserLastUpdate": "2026-08-25 12:00:25",
+    "ParserName": "xm电影解析",
+    "ParserUrl": "https://jx.xmflv.cc/?url=",
+    "ParserInformation": "暂无"
+  },
+  "P3": {
+    "ParserStatus": "active",
+    "ParserLastUpdate": "2026-08-25 11:00:25",
+    "ParserName": "77电影解析",
+    "ParserUrl": "https://jx.77flv.cc/?url=",
+    "ParserInformation": "暂无"
+  }
 }

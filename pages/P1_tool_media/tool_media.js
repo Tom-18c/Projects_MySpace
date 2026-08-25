@@ -9,10 +9,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return response.json();
     })
     .then((config) => {
-      if (typeof config.parserUrl !== "string" || !config.parserUrl) {
+      if (
+        !config.P1 ||
+        typeof config.P1.ParserUrl !== "string" ||
+        !config.P1.ParserUrl
+      ) {
         throw new Error("解析器配置无效");
       }
-      return config.parserUrl;
+      return config.P1.ParserUrl;
     });
 
   function TMF_Text_Warning_1(message) {
@@ -27,7 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (videoUrl.startsWith("https://")) {
       try {
         const parserUrl = await parserUrlPromise;
-        window.open(parserUrl + videoUrl, "_blank", "noopener");
+        window.open(
+          parserUrl + encodeURIComponent(videoUrl),
+          "_blank",
+          "noopener",
+        );
         TMF_Text_Warning_1("解析成功，已播放视频");
       } catch {
         TMF_Text_Warning_1("解析器配置加载失败，请稍后重试");

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("解析器配置无效");
       }
       return config.P1.ParserUrl;
-    });
+    }); // 功能实现：解析器配置加载
 
   function TMF_Text_Warning_1(message) {
     if (videoStatus) {

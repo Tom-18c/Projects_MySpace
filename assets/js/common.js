@@ -1,5 +1,5 @@
 /**
- * MySpace - 主脚本
+ * TomSpace - 主脚本
  * 处理导航、滚动动画等交互逻辑
  */
 
@@ -20,8 +20,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     let content = await response.text();
     content = content.replaceAll("{{ROOT}}", rootPath);
-    content = content.replace("{{HOME_ACTIVE}}", page === "home" ? "active" : "");
-    content = content.replace("{{FEATURES_ACTIVE}}", page === "media" ? "active" : "");
+    content = content.replace(
+      "{{HOME_ACTIVE}}",
+      page === "home" ? "active" : "",
+    );
+    content = content.replace(
+      "{{FEATURES_ACTIVE}}",
+      page === "media" ? "active" : "",
+    );
     placeholder.outerHTML = content;
   }
 
@@ -104,7 +110,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // 为功能卡片等元素添加 fade-in 类
-  const animatableSelectors = [".feature-card", ".about-content", ".contact-link"];
+  const animatableSelectors = [
+    ".feature-card",
+    ".about-content",
+    ".contact-link",
+  ];
   animatableSelectors.forEach((selector) => {
     document.querySelectorAll(selector).forEach((el) => {
       el.classList.add("fade-in");
@@ -150,14 +160,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const updateFeatureNav = () => {
       const currentSection = [...featureSections].find((section) => {
         const sectionTop = section.getBoundingClientRect().top;
-        return sectionTop <= window.innerHeight * 0.35 &&
-          sectionTop + section.offsetHeight > window.innerHeight * 0.35;
+        return (
+          sectionTop <= window.innerHeight * 0.35 &&
+          sectionTop + section.offsetHeight > window.innerHeight * 0.35
+        );
       });
 
       featureLocalLinks.forEach((link) => {
         link.classList.toggle(
           "active",
-          currentSection && link.getAttribute("href") === `#${currentSection.id}`
+          currentSection &&
+            link.getAttribute("href") === `#${currentSection.id}`,
         );
       });
     };

@@ -584,7 +584,7 @@ img {
 
 @media (max-width: 768px) {
   :root {
-    --title-freezed-height: 5.5rem;
+    --title-freezed-height: 4.9rem;
   }
 
   .title-freezed {

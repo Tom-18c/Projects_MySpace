@@ -3,110 +3,111 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="MySpace 媒体工具" />
+    <meta name="description" content="TomSpace 媒体工具" />
     <title>媒体工具 | Tom的个人空间</title>
     <link rel="stylesheet" href="../../assets/css/global.css" />
+    <link rel="stylesheet" href="../../assets/css/header.css" />
   </head>
+
+  <div data-layout="header"></div>
+
   <body data-root-path="../../" data-page="media">
-    <div data-layout="header"></div>
+    <header class="pages-title-freezed">
+      <div class="container">
+        <h2 class="pages-title">媒体工具</h2>
+        <p class="pages-subtitle">视频、音频与图片处理功能</p>
+      </div>
+    </header>
 
     <section id="features" class="features">
-      <header class="title-freezed">
-        <div class="container">
-          <h2 class="section-title">媒体工具</h2>
-          <p class="section-subtitle">视频、音频与图片处理功能</p>
-        </div>
-      </header>
+      <div class="container feature-page-layout">
+        <!-- aside 页内快速导航栏 -->
+        <aside class="pages-local_navbar" aria-label="媒体工具功能导航">
+          <a href="#feature-1" class="feature-local-link">看VIP视频</a>
+          <a href="#feature-2" class="feature-local-link">功能2</a>
+          <a href="#feature-3" class="feature-local-link">功能3</a>
+        </aside>
 
-      <main class="feature-page">
-        <div class="container feature-page-layout">
-          <aside class="feature-local-nav" aria-label="媒体工具功能导航">
-            <a href="#feature-1" class="feature-local-link active">看VIP视频</a>
-            <a href="#feature-2" class="feature-local-link">功能2</a>
-            <a href="#feature-3" class="feature-local-link">功能3</a>
-          </aside>
-
-          <div class="feature-sections">
-            <section id="feature-1" class="feature-section">
-              <div class="feature-card">
-                <h2 class="feature-title">看VIP视频</h2>
-                <div class="video-tool-controls">
-                  <button
-                    type="button"
-                    class="btn btn-primary video-tool-button"
-                    id="TM_Button_ParseClipboard_1"
-                  >
-                    解析剪切板内容
-                  </button>
-                  <input
-                    type="text"
-                    class="video-url-input"
-                    id="TM_Input_VideoUrl_1"
-                    placeholder="在此输入网址..."
-                    aria-label="视频网址"
-                  />
-                  <button
-                    type="button"
-                    class="btn btn-primary video-tool-button"
-                    id="TM_Button_ParseUrl_1"
-                  >
-                    解析网址
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary video-tool-button"
-                    id="TM_Button_Clear_1"
-                  >
-                    清空文本
-                  </button>
-                </div>
-                <p
-                  class="video-tool-status"
-                  id="TM_Text_Warning_1"
-                  role="status"
-                  aria-live="polite"
+        <div class="feature-sections">
+          <section id="feature-1" class="feature-section">
+            <div class="feature-card">
+              <h2 class="feature-title">看VIP视频</h2>
+              <div class="video-tool-controls">
+                <button
+                  type="button"
+                  class="btn btn-primary video-tool-button"
+                  id="TM_Button_ParseClipboard_1"
                 >
-                  将想要观看的视频网址粘贴到输入框中，再单击解析网址按钮
-                </p>
-                <p class="video-tool-controls" role="status">
-                  快捷访问：
-                  <a
-                    class="btn btn-primary video-tool-button"
-                    href="https://www.iqiyi.com"
-                    target="_blank"
-                  >
-                    爱奇艺
-                  </a>
-                  <a
-                    class="btn btn-primary video-tool-button"
-                    href="https://v.qq.com"
-                    target="_blank"
-                    >腾讯视频</a
-                  >
-                  <a
-                    class="btn btn-primary video-tool-button"
-                    href="https://www.youku.com"
-                    target="_blank"
-                  >
-                    优酷视频
-                  </a>
-                </p>
+                  解析剪切板内容
+                </button>
+                <input
+                  type="text"
+                  class="video-url-input"
+                  id="TM_Input_VideoUrl_1"
+                  placeholder="在此输入网址..."
+                  aria-label="视频网址"
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary video-tool-button"
+                  id="TM_Button_ParseUrl_1"
+                >
+                  解析网址
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary video-tool-button"
+                  id="TM_Button_Clear_1"
+                >
+                  清空文本
+                </button>
               </div>
-            </section>
-            <section id="feature-2" class="feature-section">
-              <div class="feature-card">
-                <h2 class="feature-title">收藏视频</h2>
-              </div>
-            </section>
-            <section id="feature-3" class="feature-section">
-              <div class="feature-card">
-                <h2 class="feature-title">功能3</h2>
-                <p class="feature-desc">正在开发</p>
-              </div>
-            </section>
-          </div>
+              <p
+                class="video-tool-status"
+                id="TM_Text_Warning_1"
+                role="status"
+                aria-live="polite"
+              >
+                将想要观看的视频网址粘贴到输入框中，再单击解析网址按钮
+              </p>
+              <p class="video-tool-controls" role="status">
+                快捷访问：
+                <a
+                  class="btn btn-primary video-tool-button"
+                  href="https://www.iqiyi.com"
+                  target="_blank"
+                >
+                  爱奇艺
+                </a>
+                <a
+                  class="btn btn-primary video-tool-button"
+                  href="https://v.qq.com"
+                  target="_blank"
+                  >腾讯视频</a
+                >
+                <a
+                  class="btn btn-primary video-tool-button"
+                  href="https://www.youku.com"
+                  target="_blank"
+                >
+                  优酷视频
+                </a>
+              </p>
+            </div>
+          </section>
+          <section id="feature-2" class="feature-section">
+            <div class="feature-card">
+              <h2 class="feature-title">收藏视频</h2>
+            </div>
+          </section>
+          <section id="feature-3" class="feature-section">
+            <div class="feature-card">
+              <h2 class="feature-title">功能3</h2>
+              <p class="feature-desc">正在开发</p>
+            </div>
+          </section>
         </div>
-      </main>
+      </div>
     </section>
 
     <div data-layout="footer"></div>

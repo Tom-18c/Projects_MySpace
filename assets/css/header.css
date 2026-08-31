@@ -1,0 +1,127 @@
+/* ========================================
+   导航栏
+   ======================================== */
+.navbar {
+  position: fixed;
+  height: var(--navbar-height);
+  top: 0; /*设置在父元素顶部的上下偏移量，可以是具体的像素值或百分比 */
+  left: 0; /*设置在父元素左侧的左右偏移量，可以是具体的像素值或百分比 */
+  right: 0; /*设置在父元素右侧的左右偏移量，可以是具体的像素值或百分比 */
+  z-index: 1000; /* 设置显示优先级 */
+  padding: var(--spacing-base); /* 设置内边距，作用于子元素 */
+  background: var(--color-bg); /* 设置背景颜色 */
+  display: flex; /* 设置子元素弹性布局模型 */
+  align-items: center; /* 子元素垂直方向居中对齐 */
+  border-bottom: var(--linewidth-base-px) solid var(--color-border); /* 设置底部边框 */
+} /*导航栏*/
+
+.navbar .container {
+  display: flex; /* 设置子元素一维布局模型（默认水平） */
+  align-items: center; /* 子元素垂直方向居中对齐 */
+  justify-content: space-between; /* 水平方向左右两端对齐 */
+} /*导航栏-容器*/
+
+.navbar-left {
+  gap: var(--spacing-large); /*flex容器中子元素之间的间距*/
+} /*导航栏-左*/
+
+.navbar-brand {
+  font-size: var(--font-size-large);
+  font-weight: 700;
+  color: var(--color-primary-light);
+} /*导航栏-logo*/
+
+.navbar-right {
+  gap: var(--spacing-base); /*flex容器中子元素之间的间距*/
+} /*导航栏-右*/
+
+.navbar-quick_jump {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-base);
+  padding: 0;
+  position: relative;
+} /*导航栏-快捷跳转*/
+
+.navbar-quick_jump::after {
+  content: "";
+  position: absolute; /*下划线相对父元素绝对定位*/
+  bottom: -6px; /*下划线距离文字的偏移量*/
+  left: 0; /*下划线距离文字的偏移量*/
+  width: 0; /*下划线初始线长*/
+  height: var(--linewidth-base-px); /*下划线线宽*/
+  background-color: var(--color-primary); /*下划线颜色*/
+  transition: width var(--transition-base); /*下划线过渡效果*/
+} /*底部下划线效果*/
+
+.navbar-quick_jump:hover,
+.navbar-quick_jump.active {
+  color: var(--color-text);
+} /*鼠标悬停或激活状态下的文字颜色*/
+
+.navbar-quick_jump:hover::after,
+.navbar-quick_jump.active::after {
+  width: 100%;
+} /*鼠标悬停或激活状态下的下划线宽度*/
+
+/* 折叠菜单按钮 */
+.navbar-toggle {
+  display: none; /* 默认隐藏折叠菜单按钮 */
+  flex-direction: column; /* 设置为垂直排列横线，横线数量由html中<span>定义 */
+  justify-content: space-between; /* 设置横线之间的间距 */
+  width: 30px; /* 设置按钮宽度 */
+  height: 18px; /* 设置按钮高度 */
+  background: none; /* 设置按钮背景为透明 */
+  border: none; /* 设置按钮边框 */
+  cursor: pointer; /*设置鼠标悬停时显示为手型指针，提示用户可点击*/
+  padding: 0; /* 设置按钮内边距 */
+}
+
+.navbar-toggle span {
+  display: block; /*将span元素设置为块级元素，使其可以设置宽度和高度*/
+  width: 100%; /* 设置横线宽度为按钮宽度的100% */
+  height: var(--linewidth-base-px); /* 设置横线线宽 */
+  background-color: var(--color-text); /* 设置横线颜色 */
+  border-radius: var(--radius-full); /* 设置横线圆角 */
+  transition: all var(--transition-base);
+}
+
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(33deg);
+} /*点击动画效果，第一个元素旋转45度*/
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+} /*点击动画效果，第二个元素透明度为0*/
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(-33deg);
+} /*点击动画效果，第三个元素旋转-45度*/
+
+@media (max-width: 600px) {
+  .navbar-toggle {
+    display: flex;
+  } /* 当屏幕宽度小于等于max-width时，显示折叠菜单按钮 */
+
+  .navbar-right {
+    position: fixed; /* 设置导航栏折叠菜单为固定定位 */
+    top: 66px; /* 设置导航栏折叠菜单顶部位置 */
+    right: -100%; /* 设置初始状态下，导航栏隐藏菜单位置（右） */
+    width: 100%; /* 设置导航栏折叠菜单宽度为屏幕宽度的占比 */
+    max-width: 600px; /* 设置导航栏折叠菜单最大宽度 */
+    height: 100vh; /* 设置导航栏折叠菜单高度为屏幕高度的占比 */
+    flex-direction: column; /* 设置导航栏折叠菜单为垂直排列 */
+    align-items: flex-start; /* 设置导航栏折叠菜单子元素左对齐 */
+    padding: var(--spacing-large); /* 设置导航栏折叠菜单内边距 */
+    background-color: var(
+      --color-bg-secondary
+    ); /* 设置导航栏折叠菜单背景颜色 */
+    border-left: var(--linewidth-base-px) solid var(--color-border); /* 设置导航栏折叠菜单左边框 */
+    transition: right var(--transition-base); /* 设置导航栏折叠菜单右边位置过渡效果 */
+    gap: var(--spacing-large); /* 设置导航栏折叠菜单子元素之间的间距 */
+  }
+
+  .navbar-right.open {
+    right: 0; /*点击折叠菜单按钮后，导航栏隐藏菜单位置（右） */
+  }
+} /*点击折叠菜单按钮后，隐藏菜单栏显示位置*/

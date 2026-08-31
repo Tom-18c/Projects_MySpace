@@ -1,19 +1,39 @@
 <nav class="navbar">
-	<div class="container">
-		<div class="navbar-brand-group">
-			<a href="{{ROOT}}index.html" class="navbar-brand">TomSpace</a>
-			<a href="{{ROOT}}index.html" class="back-link" data-back-link>返回上一级</a>
-		</div>
-		<button class="navbar-toggle" id="navToggle" aria-label="切换导航">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
-		<ul class="navbar-menu" id="navMenu">
-			<li><a href="{{ROOT}}index.html#home" class="nav-link {{HOME_ACTIVE}}">首页</a></li>
-			<li><a href="{{ROOT}}index.html#features" class="nav-link {{FEATURES_ACTIVE}}">功能</a></li>
-			<li><a href="{{ROOT}}index.html#about" class="nav-link">关于</a></li>
-			<li><a href="{{ROOT}}index.html#contact" class="nav-link">联系</a></li>
-		</ul>
-	</div>
+  <div class="container">
+    <div class="navbar-left container-row-1x">
+      <a href="{{ROOT}}index.html" class="navbar-brand tab-focus">TomSpace</a>
+      <a href="{{ROOT}}index.html" class="link-gray tab-focus" back-link
+        >返回上一级</a
+      >
+    </div>
+    <button class="navbar-toggle" id="navToggle" aria-label="切换导航">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="navbar-right container-row-1x" id="navMenu">
+      <li>
+        <a
+          href="{{ROOT}}index.html#home"
+          class="navbar-quick_jump {{HOME_ACTIVE}}"
+          >首页</a
+        >
+      </li>
+      <li>
+        <a
+          href="{{ROOT}}index.html#features"
+          class="navbar-quick_jump {{FEATURES_ACTIVE}}"
+          >功能区</a
+        >
+      </li>
+      <li>
+        <a href="{{ROOT}}index.html#about" class="navbar-quick_jump">关于</a>
+      </li>
+      <li>
+        <a href="{{ROOT}}index.html#contact" class="navbar-quick_jump"
+          >联系作者</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>

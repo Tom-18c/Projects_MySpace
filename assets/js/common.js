@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   await Promise.all([loadLayoutPart("header"), loadLayoutPart("footer")]);
 
   if (page === "home") {
-    document.querySelector("[data-back-link]")?.remove();
-  }
+    document.querySelector("[back-link]")?.remove();
+  } /*检查当前页面是否为首页，如果是首页则移除带有data-back-link属性的元素。*/
 
   /* ========================================
-     导航栏 - 移动端菜单切换
+     导航栏 - 移动端隐藏菜单切换
      ======================================== */
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
@@ -91,8 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  window.addEventListener("scroll", highlightNavOnScroll);
-
   /* ========================================
      滚动渐入动画
      ======================================== */
@@ -134,7 +132,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  window.addEventListener("scroll", checkAllFadeIn);
   // 初始检查一次
   checkAllFadeIn();
 
@@ -144,6 +141,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const navbar = document.querySelector(".navbar");
 
   function handleNavbarShadow() {
+    if (!navbar) {
+      return;
+    }
+
     if (window.scrollY > 10) {
       navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.3)";
     } else {
@@ -151,31 +152,52 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  window.addEventListener("scroll", handleNavbarShadow);
-
   const featureSections = document.querySelectorAll(".feature-section");
   const featureLocalLinks = document.querySelectorAll(".feature-local-link");
 
-  if (featureSections.length && featureLocalLinks.length) {
-    const updateFeatureNav = () => {
-      const currentSection = [...featureSections].find((section) => {
-        const sectionTop = section.getBoundingClientRect().top;
-        return (
-          sectionTop <= window.innerHeight * 0.35 &&
-          sectionTop + section.offsetHeight > window.innerHeight * 0.35
-        );
-      });
+  function updateFeatureNav() {
+    if (!featureSections.length || !featureLocalLinks.length) {
+      return;
+    }
 
-      featureLocalLinks.forEach((link) => {
-        link.classList.toggle(
-          "active",
-          currentSection &&
-            link.getAttribute("href") === `#${currentSection.id}`,
-        );
-      });
-    };
+    const currentSection = [...featureSections].find((section) => {
+      const sectionTop = section.getBoundingClientRect().top;
+      return (
+        sectionTop <= window.innerHeight * 0.35 &&
+        sectionTop + section.offsetHeight > window.innerHeight * 0.35
+      );
+    });
 
-    window.addEventListener("scroll", updateFeatureNav);
+    featureLocalLinks.forEach((link) => {
+      link.classList.toggle(
+        "active",
+        currentSection && link.getAttribute("href") === `#${currentSection.id}`,
+      );
+    });
+  }
+
+  let scrollFrameId = null;
+
+  function refreshScrollState() {
+    highlightNavOnScroll();
+    checkAllFadeIn();
+    handleNavbarShadow();
     updateFeatureNav();
   }
+
+  function scheduleScrollRefresh() {
+    if (scrollFrameId !== null) {
+      return;
+    }
+
+    scrollFrameId = window.requestAnimationFrame(() => {
+      scrollFrameId = null;
+      refreshScrollState();
+    });
+  }
+
+  window.addEventListener("scroll", scheduleScrollRefresh, { passive: true });
+  window.addEventListener("resize", scheduleScrollRefresh, { passive: true });
+
+  refreshScrollState();
 });

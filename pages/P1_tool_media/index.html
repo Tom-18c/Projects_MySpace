@@ -24,7 +24,7 @@
         <!-- aside 页内快速导航栏 -->
         <aside class="pages-local_navbar" aria-label="媒体工具功能导航">
           <a href="#feature-1" class="feature-local-link">看VIP视频</a>
-          <a href="#feature-2" class="feature-local-link">功能2</a>
+          <a href="#feature-2" class="feature-local-link">下载视频</a>
           <a href="#feature-3" class="feature-local-link">功能3</a>
         </aside>
 
@@ -98,9 +98,62 @@
           <section id="feature-2" class="feature-section">
             <div class="feature-card">
               <h2 class="feature-title">下载视频</h2>
+              <div class="video-tool-controls">
+                <button
+                  type="button"
+                  class="btn btn-primary video-tool-button"
+                  id="TM_Button_ParseClipboard_2"
+                >
+                  解析剪切板内容
+                </button>
+                <input
+                  type="text"
+                  class="video-url-input"
+                  id="TM_Input_VideoUrl_2"
+                  placeholder="在此输入网址..."
+                  aria-label="视频网址"
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary video-tool-button"
+                  id="TM_Button_ParseUrl_2"
+                >
+                  解析网址
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary video-tool-button"
+                  id="TM_Button_Clear_2"
+                >
+                  清空文本
+                </button>
+              </div>
+              <p
+                class="video-tool-status"
+                id="TM_Text_Warning_2"
+                role="status"
+                aria-live="polite"
+              >
+                将想要观看的视频网址粘贴到输入框中，再单击解析网址按钮
+              </p>
+              <p class="video-tool-controls" role="status">
+                功能支持视频平台：
+                <a
+                  class="btn btn-primary video-tool-button"
+                  href="https://www.bilibili.com/"
+                  target="_blank"
+                >
+                  哔哩哔哩
+                </a>
+              </p>
             </div>
           </section>
           <section id="feature-3" class="feature-section">
+            <div class="feature-card">
+              <h2 class="feature-title">视频</h2>
+            </div>
+          </section>
+          <section id="feature-4" class="feature-section">
             <div class="feature-card">
               <h2 class="feature-title">功能3</h2>
               <p class="feature-desc">正在开发</p>

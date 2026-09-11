@@ -1,0 +1,3 @@
+# Ignore audio and video files
+*.mp4
+*.mp3

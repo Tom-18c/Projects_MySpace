@@ -1,3 +1,7 @@
 # Ignore audio and video files
 *.mp4
 *.mp3
+
+# Local FFmpeg binaries and archives
+ffmpeg-release-essentials.zip
+ffmpeg-*-essentials_build/

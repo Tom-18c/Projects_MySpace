@@ -25,7 +25,8 @@
         <aside class="pages-local_navbar" aria-label="媒体工具功能导航">
           <a href="#feature-1" class="feature-local-link">看VIP视频</a>
           <a href="#feature-2" class="feature-local-link">下载视频</a>
-          <a href="#feature-3" class="feature-local-link">功能3</a>
+          <a href="#feature-3" class="feature-local-link">视频</a>
+          <a href="#feature-4" class="feature-local-link">功能3</a>
         </aside>
 
         <div class="feature-sections">
@@ -167,6 +168,16 @@
 
     <script src="../../assets/js/common.js"></script>
     <script src="../../assets/js/tom_function_public.js"></script>
+    <!-- 部署到公网后，将此地址替换为后端代理的 HTTPS 地址。 -->
+    <script>
+      window.TOOL_MEDIA_PROXY_URL =
+        "http://127.0.0.1:8787/api/bilibili/download";
+    </script>
+    <script src="tool_media_public.js"></script>
+    <script src="tool_media_card1.js"></script>
+    <script src="tool_media_card2.js"></script>
+    <script src="tool_media_card3.js"></script>
+    <script src="tool_media_card4.js"></script>
     <script src="tool_media.js"></script>
   </body>
 </html>

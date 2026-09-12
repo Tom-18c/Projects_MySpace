@@ -1,7 +1,21 @@
 (function () {
-  const downloadProxyUrl =
-    window.TOOL_MEDIA_PROXY_URL ||
-    "http://127.0.0.1:8787/api/bilibili/download";
+  const configuredProxyUrl = window.TOOL_MEDIA_PROXY_URL?.trim() || "";
+
+  function getDownloadProxyUrl(warning) {
+    if (configuredProxyUrl) {
+      return configuredProxyUrl;
+    }
+
+    const localHost = ["localhost", "127.0.0.1", "[::1]"].includes(
+      window.location.hostname,
+    );
+    if (localHost) {
+      return "http://127.0.0.1:8787/api/bilibili/download";
+    }
+
+    warning("下载服务尚未配置，请联系网站管理员");
+    return null;
+  }
 
   function extractBvid(input) {
     const match = input.match(/BV[a-zA-Z0-9]+/);
@@ -19,7 +33,12 @@
       return;
     }
 
-    const downloadUrl = `${downloadProxyUrl}?bvid=${encodeURIComponent(bvid)}`;
+    const proxyUrl = getDownloadProxyUrl(warning);
+    if (!proxyUrl) {
+      return;
+    }
+
+    const downloadUrl = `${proxyUrl}?bvid=${encodeURIComponent(bvid)}`;
     const link = document.createElement("a");
     link.href = downloadUrl;
     link.download = `${bvid}.mp4`;

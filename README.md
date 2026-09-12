@@ -42,13 +42,15 @@ node backend/server.js
 
 ```html
 <script>
-   window.TOOL_MEDIA_PROXY_URL = "https://你的后端域名/api/bilibili/download";
+  window.TOOL_MEDIA_PROXY_URL = "https://你的后端域名/api/bilibili/download";
 </script>
 ```
 
 目前未设置公网地址时，页面默认只连接本机 `127.0.0.1:8787`，其他用户无法使用下载功能。
 
-本项目已提供 `Dockerfile` 和 `render.yaml`。在 Render 中连接此 GitHub 仓库并创建 Blueprint 后，Render 会自动安装 FFmpeg 并启动后端。取得服务域名后，将上面的 `TOOL_MEDIA_PROXY_URL` 改为该服务的 `/api/bilibili/download` 地址，再推送一次前端文件。
+本项目已提供 `Dockerfile` 和 `render.yaml`。在 Render 中连接此 GitHub 仓库并创建 Blueprint 后，Render 会自动安装 FFmpeg 并启动后端。创建服务时，在 Render 的 Environment 中填写私密变量 `BILIBILI_COOKIE`。取得服务域名后，将上面的 `TOOL_MEDIA_PROXY_URL` 改为该服务的 `/api/bilibili/download` 地址，再推送一次前端文件。
+
+如果 GitHub Pages 页面没有配置公网代理地址，下载按钮会提示“下载服务尚未配置”，不会错误地请求访问者自己的电脑。GitHub Pages 无法替代这个后端服务。
 
 代理会请求账号权限内的最高画质，并优先使用 DASH 视频轨道。若要合并 DASH 的独立视频和音频轨道，请先安装 FFmpeg 并确保 `ffmpeg` 在系统 PATH 中。需要登录权限时，可在启动前设置自己的 Cookie：
 
